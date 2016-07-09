@@ -1,0 +1,327 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+a {
+    color: #00e;
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+a:hover {
+    color: #06e;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+/* structure */
+#form-container {
+    width: 100%;
+}
+#nav {
+    text-align: center;
+
+}
+#property_id {
+    padding: 10px;
+    text-align: right;
+}
+/* text styles */
+body {
+}
+
+/* elements */
+h2 {
+    background-color: #000;
+    color: #FFF;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    border: 0;
+    line-height: 24px;
+    border-radius: 2px;
+    outline: 0;
+    background-clip: padding-box;
+    padding: 5px 14px;
+    white-space: nowrap;
+    color: #fff;
+    background: #37a000;
+    height: 35px;
+    vertical-align: middle;
+}
+
+input[type="radio"] {
+    width: 100%;
+    height: 100%;
+}
+
+input[type="file"] {
+    padding-top: 10px;
+}
+textarea {
+    height: 30px;
+    width: 40%;
+}
+
+section > div {
+    height:40px;
+    padding-left: 10px;
+    display: none;
+}
+
+section > div:first-child {
+    background-color: #dadada;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.active-section {
+    display: block;
+}
+
+/* condition colors */
+.na {
+    background-color: #FFF;
+}
+.na > input:after {
+    content: "N/A";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.poor {
+    background-color: #FF0000;
+}
+.poor > input:after {
+    content: "Poor";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.fair {
+    background-color: #FFFF00;
+}
+.fair > input:after {
+    content: "Fair";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.good {
+    background-color: #CCFB5D;
+}
+.good > input:after {
+    content: "Good";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.great {
+    background-color: #00FF00;
+}
+.great > input:after {
+    content: "Great";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+
+.green {
+    color: lawngreen;
+}
+.red {
+    color: red;
+}
+
+/* positioning */
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+    -webkit-touch-callout: none;
+}
+
+.pressed {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+    -webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+
+.gifhidden {
+    position: absolute;
+    left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    direction: ltr;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+}
+
+.ir br {
+    display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for viewports that meet the condition */
+}

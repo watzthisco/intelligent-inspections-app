@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>New Inspection</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="sectionue">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <!-- SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/" >
+    -->
+
+    <!-- Add to homescreen for Chrome on Android -->
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+
+    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.prevendivefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+    <script src="js/onlineDetect.js"></script>
+    <script src="sw.js"></script>
+</head>
+<body>
+<h2>New Inspection <span id="onlineStatusMessage">*</span></h2>
+<form name="inspection-report" action="saveInspection.php" method="post" enctype="multipart/form-data">
+
+
+    <div id="property_id">
+        <label for="prop_id">Property Id: </label><input type="text" size="10" name="prop_id" id="prop_id">
+    </div>
+
+
+    <div id="form-container">
+
+
+        <section id="interior_walls">
+            <div>Interior Walls</div>
+            <div class="na"><input type="radio" name="interior_walls" value="0"></div>
+            <div class="poor"><input type="radio" name="interior_walls" value="1"></div>
+            <div class="fair"><input type="radio" name="interior_walls" value="2"></div>
+            <div class="good"><input type="radio" name="interior_walls" value="3"></div>
+            <div class="great"><input type="radio" name="interior_walls" value="4"></div>
+            <div><input type="file" name="interior_walls_picture"></div>
+            <div><textarea name="interior_walls_notes"></textarea></div>
+
+        </section>
+        <section id="interior_ceilings">
+            <div>Interior Ceilings</div>
+            <div class="na"><input type="radio" name="interior_ceilings" value="0"></div>
+            <div class="poor"><input type="radio" name="interior_ceilings" value="1"></div>
+            <div class="fair"><input type="radio" name="interior_ceilings" value="2"></div>
+            <div class="good"><input type="radio" name="interior_ceilings" value="3"></div>
+            <div class="great"><input type="radio" name="interior_ceilings" value="4"></div>
+            <div><input type="file" name="interior_ceilings_picture"></div>
+            <div><textarea name="interior_ceilings_notes"></textarea></div>
+        </section>
+        <section id="interior_flooring">
+            <div>Interior Flooring</div>
+            <div class="na"><input type="radio" name="interior_flooring" value="0"></div>
+            <div class="poor"><input type="radio" name="interior_flooring" value="1"></div>
+            <div class="fair"><input type="radio" name="interior_flooring" value="2"></div>
+            <div class="good"><input type="radio" name="interior_flooring" value="3"></div>
+            <div class="great"><input type="radio" name="interior_flooring" value="4"></div>
+            <div><input type="file" name="interior_flooring_picture"></div>
+            <div><textarea name="interior_flooring_notes"></textarea></div>
+        </section>
+        <section id="interior_lighting_notes">
+            <div>Interior Lighting</div>
+            <div class="na"><input type="radio" name="interior_lighting" value="0"></div>
+            <div class="poor"><input type="radio" name="interior_lighting" value="1"></div>
+            <div class="fair"><input type="radio" name="interior_lighting" value="2"></div>
+            <div class="good"><input type="radio" name="interior_lighting" value="3"></div>
+            <div class="great"><input type="radio" name="interior_lighting" value="4"></div>
+            <div><input type="file" name="interior_lighting_picture"></div>
+            <div><textarea name="interior_lighting_notes"></textarea></div>
+        </section>
+        <section id="windows_screens_shutters">
+            <div>Windows, Screens, Shutters</div>
+            <div class="na"><input type="radio" name="windows_screens_shutters" value="0"></div>
+            <div class="poor"><input type="radio" name="windows_screens_shutters" value="1"></div>
+            <div class="fair"><input type="radio" name="windows_screens_shutters" value="2"></div>
+            <div class="good"><input type="radio" name="windows_screens_shutters" value="3"></div>
+            <div class="great"><input type="radio" name="windows_screens_shutters" value="4"></div>
+            <div><input type="file" name="windows_screens_shutters_picture"></div>
+            <div><textarea name="windows_screens_shutters_notes"></textarea></div>
+        </section>
+        <section id="doors_knobs_locks">
+            <div>Doors, Knobs, Locks</div>
+            <div class="na"><input type="radio" name="doors_knobs_locks" value="0"></div>
+            <div class="poor"><input type="radio" name="doors_knobs_locks" value="1"></div>
+            <div class="fair"><input type="radio" name="doors_knobs_locks" value="2"></div>
+            <div class="good"><input type="radio" name="doors_knobs_locks" value="3"></div>
+            <div class="great"><input type="radio" name="doors_knobs_locks" value="4"></div>
+            <div><input type="file" name="doors_knobs_locks_picture"></div>
+            <div><textarea name="doors_knobs_locks_notes"></textarea></div>
+        </section>
+        <section id="ceiling_fans">
+            <div>Ceiling Fans</div>
+            <div class="na"><input type="radio" name="ceiling_fans" value="0"></div>
+            <div class="poor"><input type="radio" name="ceiling_fans" value="1"></div>
+            <div class="fair"><input type="radio" name="ceiling_fans" value="2"></div>
+            <div class="good"><input type="radio" name="ceiling_fans" value="3"></div>
+            <div class="great"><input type="radio" name="ceiling_fans" value="4"></div>
+            <div><input type="file" name="ceiling_fans_picture"></div>
+            <div><textarea name="ceiling_fans_notes"></textarea></div>
+        </section>
+        <section id="stairs_handrails">
+            <div>Stairs and Handrails</div>
+            <div class="na"><input type="radio" name="stairs_handrails" value="0"></div>
+            <div class="poor"><input type="radio" name="stairs_handrails" value="1"></div>
+            <div class="fair"><input type="radio" name="stairs_handrails" value="2"></div>
+            <div class="good"><input type="radio" name="stairs_handrails" value="3"></div>
+            <div class="great"><input type="radio" name="stairs_handrails" value="4"></div>
+            <div><input type="file" name="stairs_handrails_picture"></div>
+            <div><textarea name="stairs_handrails_notes"></textarea></div>
+        </section>
+        <section id="smoke_alarms">
+            <div>Smoke Alarms</div>
+            <div class="na"><input type="radio" name="smoke_alarms" value="0"></div>
+            <div class="poor"><input type="radio" name="smoke_alarms" value="1"></div>
+            <div class="fair"><input type="radio" name="smoke_alarms" value="2"></div>
+            <div class="good"><input type="radio" name="smoke_alarms" value="3"></div>
+            <div class="great"><input type="radio" name="smoke_alarms" value="4"></div>
+            <div><input type="file" name="smoke_alarms_picture"></div>
+            <div><textarea name="smoke_alarms_notes"></textarea></div>
+        </section>
+        <section id="fireplaces">
+            <div>Fireplaces</div>
+            <div class="na"><input type="radio" name="fireplaces" value="0"></div>
+            <div class="poor"><input type="radio" name="fireplaces" value="1"></div>
+            <div class="fair"><input type="radio" name="fireplaces" value="2"></div>
+            <div class="good"><input type="radio" name="fireplaces" value="3"></div>
+            <div class="great"><input type="radio" name="fireplaces" value="4"></div>
+            <div><input type="file" name="fireplaces_picture"></div>
+            <div><textarea name="fireplaces_notes"></textarea></div>
+        </section>
+
+        <input type="submit" name="saveForm" value="SAVE">
+
+
+    </div>
+</form>
+
+<script src="js/vendor/jquery-2.1.0.min.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+</body>
+</html>
