@@ -1,0 +1,64 @@
+/* structure */
+#form-container {
+  margin: 20px auto;
+  width: 800px;
+}
+#nav {
+  text-align: center;
+  
+}
+/* text styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* elements */
+th {
+  text-transform: uppercase;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+input[type="submit"] {
+    margin-top: 20px;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    border: 0;
+    line-height: 24px;
+    border-radius: 2px;
+    outline: 0;
+    background-clip: padding-box;
+    padding: 5px 14px;
+    white-space: nowrap;
+    color: #fff;
+    background: #37a000;
+    height: 35px;
+    vertical-align: middle;
+}
+
+/* condition colors */
+.na {
+  background-color: #FFF;
+}
+.poor {
+  background-color: #FF0000;
+}
+.fair {
+  background-color: #FFFF00;
+}
+.good {
+  background-color: #CCFB5D;
+}
+.great {
+  background-color: #00FF00;
+}
+
+/* positioning */
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
