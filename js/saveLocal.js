@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
 
     db.open().then(function () {
-        // populate form
+        // populate form - need to figure out how to load radio buttons, or just scrap this
         db.inspections.toArray().then(function (fData) {
             fData = fData[0];
             $.each(fData, function (formEle, formEleVal) {
