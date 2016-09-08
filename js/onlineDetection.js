@@ -4,15 +4,15 @@ window.addEventListener('load', function(e) {
     } else {
         updateOnlineStatus(false);
     }
-});
+}, false);
 
 window.addEventListener('online', function(e) {
     updateOnlineStatus(true);
-});
+}, false);
 
 window.addEventListener('offline', function(e) {
     updateOnlineStatus(false);
-});
+}, false);
 
 function updateOnlineStatus(online) {
     var osm = document.getElementById('onlineStatusMessage');
