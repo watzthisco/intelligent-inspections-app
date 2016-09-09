@@ -10,20 +10,18 @@ $(document).ready(function() {
 
     });
 
+// save data to local database
+
     var formObj = {};
 
-// save data to local database
     var db = new Dexie('intelligentInspections');
     console.log("db created");
     db.version(1).stores({
-        inspections: '++id, prop_id'
+        inspections: '++id'
     });
-
 
     db.open().then(function () {
         db.inspections.toArray().then(function (fData) {
-
-
 
             if (fData.length===0) {
                 db.inspections.put(formObj);

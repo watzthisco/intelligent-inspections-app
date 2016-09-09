@@ -9,8 +9,7 @@ $(document).ready(function () {
     });
 
 
-// AJAX Call to server..
-// Success
+
     //bind the form
     var options = {
         target: '#output',
