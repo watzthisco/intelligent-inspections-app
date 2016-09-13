@@ -23,6 +23,22 @@ $(document).ready(function () {
                 db.inspections.put(formObj);
                 console.log ("inserted blank record");
             }
+
+            //populate form
+            fData = fData[0];
+            console.log(fData);
+            $.each(fData, function(formEle, formEleVal) {
+                if ($('input[name=' + formEle + ']').is(":radio")) {
+
+                    $('[name=' + formEle + ']')[formEleVal].checked = true;
+
+                } else {
+
+                    $('[name=' + formEle + ']').val(formEleVal);
+
+                }
+            });
+
         })
     });
 
