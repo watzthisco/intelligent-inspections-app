@@ -2,9 +2,11 @@ var CACHE_NAME = 'intelligent-inspections-cache-v1.3';
 
 var urlsToCache = [
     '/',
+    '/newInspection.html',
     '/css/main.css',
     '/css/normalize.css',
     '/js/main.js',
+    '/js/sw.js',
     '/js/onlineDetection.js',
     '/js/vendor/jquery-3.1.0.min.js'
 ]
@@ -59,7 +61,6 @@ self.addEventListener('fetch', function(event) {
             })
     );
 });
-
 
 
 
