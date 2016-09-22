@@ -1,4 +1,4 @@
-(function () {
+function storeImage(image,filekey,filename) {
     // IndexedDB
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
@@ -18,7 +18,7 @@
             var xhr = new XMLHttpRequest(),
                 blob;
 
-            xhr.open("GET", "elephant.png", true);
+            xhr.open("GET", image, true);
             // Set the responseType to blob
             xhr.responseType = "blob";
 
@@ -42,13 +42,13 @@
             console.log("Putting elephants in IndexedDB");
 
             // Open a transaction to the database
-            var transaction = db.transaction(["elephants"], IDBTransaction.READ_WRITE);
+            var transaction = db.transaction(["elephants"], "readwrite");
 
             // Put the blob into the dabase
-            var put = transaction.objectStore("elephants").put(blob, "image");
+            var put = transaction.objectStore("elephants").put(blob, filename);
 
             // Retrieve the file that was just stored
-            transaction.objectStore("elephants").get("image").onsuccess = function (event) {
+            transaction.objectStore("elephants").get(filename).onsuccess = function (event) {
                 var imgFile = event.target.result;
                 console.log("Got elephant!" + imgFile);
 
@@ -63,7 +63,7 @@
                 imgElephant.setAttribute("src", imgURL);
 
                 // Revoking ObjectURL
-                URL.revokeObjectURL(imgURL);
+                //URL.revokeObjectURL(imgURL);
             };
         };
 
@@ -101,4 +101,4 @@
     request.onupgradeneeded = function (event) {
         createObjectStore(event.target.result);
     };
-})();
+}
