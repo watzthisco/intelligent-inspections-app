@@ -72,7 +72,6 @@ function storeImage(image,filekey,filename) {
             // Put the blob into the dabase
             var put = transaction.objectStore("pictures").put(blob, filename);
 
-            displayImage(filename);
 
         };
 
