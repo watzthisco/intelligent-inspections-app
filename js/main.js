@@ -35,7 +35,7 @@ $(document).ready(function () {
                     $('[name=' + formEle +']')[formEleVal].checked = true;
                 } else {
                     if ($('input[name=' + formEle + ']').is(":file")) {
-                        // do something
+                        displayImage(formEleVal,formEle);
                     } else {
                         $('[name=' + formEle + ']').val(formEleVal);
                     }

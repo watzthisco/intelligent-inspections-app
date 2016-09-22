@@ -198,7 +198,10 @@ section > div:first-child {
 }
 
 
-
+/*images*/
+.thumb {
+    height: 40px;
+}
 
 
 

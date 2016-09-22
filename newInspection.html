@@ -14,7 +14,7 @@
         Property Number: <input type="text" size="10" name="prop_id"><br><br>
     </div>
 
-    <img id="elephant" src="">
+    <img id="lastPicture" src="">
     <div id="form-container">
 
 
@@ -26,7 +26,7 @@
             <div class="good"><input type="radio" name="interior_walls" value="3"></div>
             <div class="great"><input type="radio" name="interior_walls" value="4"></div>
             <div><textarea name="interior_walls_notes" cols="40" rows="4"></textarea></div>
-            <div><input type="file" name="interior_walls_picture"> <img src="" id="interior_walls_picture_preview" height="40"></div>
+            <div><input type="file" name="interior_walls_picture"> <img src="" id="interior_walls_picture_preview" class="thumb"></div>
 
         </section>
         <section>
@@ -37,7 +37,7 @@
             <div class="good"><input type="radio" name="interior_ceilings" value="3"></div>
             <div class="great"><input type="radio" name="interior_ceilings" value="4"></div>
             <div><textarea name="interior_ceilings_notes" cols="40" rows="4"></textarea></div>
-            <div><input type="file" name="interior_ceilings_picture"></div>
+            <div><input type="file" name="interior_ceilings_picture"> <img src="" id="interior_ceilings_picture_preview" class="thumb"></div>
         </section>
         <section>
             <div>Interior Flooring</div>
@@ -47,7 +47,7 @@
             <div class="good"><input type="radio" name="interior_flooring" value="3"></div>
             <div class="great"><input type="radio" name="interior_flooring" value="4"></div>
             <div><textarea name="interior_flooring_notes" cols="40" rows="4"></textarea></div>
-            <div><input type="file" name="interior_flooring_picture"></div>
+            <div><input type="file" name="interior_flooring_picture"> <img src="" id="interior_flooring_picture_preview" class="thumb"></div>
         </section>
         <section>
             <div>Interior Lighting</div>
@@ -57,7 +57,7 @@
             <div class="good"><input type="radio" name="interior_lighting" value="3"></div>
             <div class="great"><input type="radio" name="interior_lighting" value="4"></div>
             <div><textarea name="interior_lighting_notes" cols="40" rows="4"></textarea></div>
-            <div><input type="file" name="interior_lighting_picture"></div>
+            <div><input type="file" name="interior_lighting_picture"> <img src="" id="interior_lighting_picture_preview" class="thumb"></div>
         </section>
         <section>
             <div>Windows, Screens, Shutters</div>
@@ -132,7 +132,10 @@
 <script src="js/vendor/dexie.js"></script>
 <script src="js/onlineDetection.js"></script>
 <script src="js/saveLocal.js"></script>
-<script src="js/main.js"></script>
+<script src="js/displayImages.js"></script>
+
 <script src="js/storeImages.js"></script>
+
+<script src="js/main.js"></script>
 </body>
 </html>
