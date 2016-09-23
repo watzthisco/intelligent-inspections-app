@@ -11,6 +11,8 @@ $(document).ready(function () {
 // save data to local database
 
     var formObj = {};
+    var fileObj = {};
+
 
     var db = new Dexie('intelligentInspections');
     db.version(1).stores({
@@ -23,7 +25,23 @@ $(document).ready(function () {
                 db.inspections.put(formObj);
                 console.log ("inserted blank record");
             }
-        })
+            //populate form
+
+            fData = fData[0];
+
+            $.each (fData, function(formEle, formEleVal){
+                if ($('input[name=' + formEle + ']').is(":radio")){
+
+                    $('[name=' + formEle +']')[formEleVal].checked = true;
+                } else {
+                    if ($('input[name=' + formEle + ']').is(":file")) {
+                        // do something
+                    } else {
+                        $('[name=' + formEle + ']').val(formEleVal);
+                    }
+                }
+            });
+        });
     });
 
 
@@ -43,7 +61,25 @@ $(document).ready(function () {
         });
     });
 
+    $('input[type=file]').on('change', function() {
+        var tmppath = window.URL.createObjectURL(this.files[0]);
+        console.log('temp path: ' + tmppath);
 
+        var filename = this.files[0].name;
+        console.log('filename: ' + filename);
+
+        var filekey = this.name;
+        console.log('file key: ' + filekey);
+
+        db.inspections.toArray().then(function(fData) {
+            fData = fData[fData.length - 1];
+
+            formObj[filekey] = filename;
+            db.inspections.update(fData.id, formObj);
+
+            $('#' + filekey + '_preview').attr('src', tmppath);
+        })
+    });
 
 
 

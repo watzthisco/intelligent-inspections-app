@@ -99,3 +99,8 @@ input[type="file"] {
 .red {
     color: red;
 }
+
+.thumb {
+    width: 35px;
+    height: 35px;
+}
