@@ -84,63 +84,6 @@ $(document).ready(function () {
 
     });
 
-    getImageFile = function (id,path) {
-        // Create XHR
-        var xhr = new XMLHttpRequest(),
-            blob;
-
-        xhr.open("GET", path, true);
-        // Set the responseType to blob
-        xhr.responseType = "blob";
-
-        xhr.addEventListener("load", function () {
-            if (xhr.status === 200) {
-                console.log("Image retrieved");
-
-                // Blob as response
-                blob = xhr.response;
-                console.log("Blob:" + blob);
-
-                // Put the received blob into IndexedDB
-                putElephantInDb(id,blob);
-            }
-        }, false);
-        // Send XHR
-        xhr.send();
-    };
-
-    putElephantInDb = function (id,blob) {
-        console.log("Putting elephants in IndexedDB");
-
-        // Open a transaction to the database
-        //var transaction = db.transaction(["IntelligentInspections"], IDBTransaction.READ_WRITE);
-
-        // Put the blob into the dabase
-        //var put = transaction.objectStore("inspections").put(blob, "image");
-        db.inspections.update(id, blob);
-        // Retrieve the file that was just stored
-        var imgFile = db.inspections.get(id);
-        console.log("Got blob!" + imgFile);
-        // Get window.URL object
-        var URL = window.URL || window.webkitURL;
-
-        // Create and revoke ObjectURL
-        var imgURL = URL.createObjectURL(imgFile);
-
-        // Set img src to ObjectURL
-        var imgElephant = document.getElementById("elephant");
-        imgElephant.setAttribute("src", imgURL);
-
-        // Revoking ObjectURL
-        URL.revokeObjectURL(imgURL);
-        /*transaction.objectStore("inspections").get("image").onsuccess = function (event) {
-            var imgFile = event.target.result;
-
-
-
-        };*/
-    };
-
 
 
 

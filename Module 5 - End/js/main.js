@@ -78,7 +78,9 @@ $(document).ready(function () {
             db.inspections.update(fData.id, formObj);
 
             $('#' + filekey + '_preview').attr('src', tmppath);
-        })
+
+            storeImage(tmppath, filename);
+        });
     });
 
 

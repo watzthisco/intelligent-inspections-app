@@ -1,8 +1,9 @@
-function storeImage(image,filekey,filename) {
-    // IndexedDB
+function storeImage(image,filename) {
+
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
-        IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction,
-        dbVersion = 1.0;
+        IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
+
+    var dbVersion = 1.0;
 
     var db;
 
