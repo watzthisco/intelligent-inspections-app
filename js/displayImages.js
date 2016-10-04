@@ -1,4 +1,4 @@
-function displayImage(filename, element) {
+function displayImage(filename,element) {
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
@@ -30,12 +30,11 @@ function displayImage(filename, element) {
             console.log("Error creating / accessing objectstore");
         };
 
-        displayThumbnail(filename);
+        displayThumb();
 
     };
 
-
-    var displayThumbnail = function (filename) {
+    var displayThumb = function() {
 
         var transaction = db.transaction(["pictures"], "readonly");
 
@@ -45,15 +44,20 @@ function displayImage(filename, element) {
 
         objectStoreRequest.onsuccess = function(event) {
             console.log("looking for: " + filename);
+
             var imgFile = objectStoreRequest.result;
-            console.log("Got picture!" + imgFile);
+
+            console.log("got picture! " + imgFile);
 
             var imgURL = window.URL.createObjectURL(imgFile);
 
+
             var imgPicture = document.getElementById(element + "_preview");
+
             imgPicture.setAttribute("src", imgURL);
 
         }
+
     };
 
 }
