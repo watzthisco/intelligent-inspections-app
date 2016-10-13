@@ -56,7 +56,9 @@ function displayImage(filename,element) {
 
             imgPicture.setAttribute("src", imgURL);
 
+
         }
+
 
     };
 

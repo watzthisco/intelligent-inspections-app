@@ -8,6 +8,26 @@ $(document).ready(function () {
         $(event.target).siblings().toggleClass("active-section");
     });
 
+    //large image dialog
+    var opt = {
+        autoOpen: false,
+        modal: true,
+        show: {
+            effect: 'fade',
+            duration: 800
+        }
+    };
+
+    //make thumbs clickable
+    $('.thumb').on('click', function(event){
+
+        if($('#' + this.id).attr('src') != '') {
+            console.log('thumb clicked: ' + this.src);
+            $('#largeImage').attr('src', this.src);
+            $('#large-image-modal').dialog(opt).dialog('open');
+        }
+    });
+
 // save data to local database
 
     var formObj = {};
@@ -83,10 +103,6 @@ $(document).ready(function () {
         });
     });
 
-
-
-
-
     //bind the form
     var options = {
         target: '#output',
@@ -96,26 +112,6 @@ $(document).ready(function () {
     };
     $('#newInspection').ajaxForm(options);
 
-    //large image dialog
-    var opt = {
-        autoOpen: false,
-        modal: true,
-        show: {
-            effect: 'fade',
-            duration: 800
-        },
-        width: 550,
-        height:650
-    };
 
-    //make thumbs clickable
-    $('.thumb').on('click', function(event){
-
-        if($('#' + this.id).attr('src') != '') {
-            console.log('thumb clicked: ' + this.src);
-            $('#largeImage').attr('src', this.src);
-            $('#large-image-modal').dialog(opt).dialog('open');
-        }
-    });
 
 });

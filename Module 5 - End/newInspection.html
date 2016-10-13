@@ -5,6 +5,8 @@
     <title>Intelligent Inspections, Inc. Inspection Form</title>
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <!--<script src="sw.js"></script>-->
 
 </head>
@@ -123,14 +125,18 @@
 
         <input type="submit" name="saveForm" value="SAVE">
 
+        <div id="large-image-modal">
+            <img src="#" id="largeImage"/>
+        </div>
+
         <div id="output"></div>
 
     </div>
 </form>
 <script src="js/vendor/jquery-3.1.0.min.js"></script>
 <script src="js/vendor/jquery.form.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/vendor/serializeObject.js"></script>
-<script src="js/onlineDetection.js"></script>
 <script src="js/onlineDetection.js"></script>
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="js/storeImages.js"></script>

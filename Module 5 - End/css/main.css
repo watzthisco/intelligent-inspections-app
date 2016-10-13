@@ -104,3 +104,12 @@ input[type="file"] {
     width: 35px;
     height: 35px;
 }
+
+#largeImage {
+    max-width: 400px;
+    width: 100%;
+}
+
+#large-image-modal {
+    display:none;
+}

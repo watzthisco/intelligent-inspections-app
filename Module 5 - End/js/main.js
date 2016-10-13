@@ -8,6 +8,25 @@ $(document).ready(function () {
         $(event.target).siblings().toggleClass("active-section");
     });
 
+    //make thumbs clickable
+
+    var opt = {
+        autoOpen: false,
+        modal: true,
+        show: {
+            effect: 'fade',
+            duration: 800
+        }
+    };
+
+    $('.thumb').on('click', function(event){
+        if($('#' + this.id).attr('src') != '') {
+            console.log('thumbnail clicked: ' + this.src);
+            $('#largeImage').attr('src', this.src);
+            $('#large-image-modal').dialog(opt).dialog('open');
+        }
+    });
+
 // save data to local database
 
     var formObj = {};
