@@ -20,7 +20,7 @@ mysql_select_db("intelligentinspections") or die(mysql_error()) ;
 
 foreach($_POST as $key => $value)
 {
-if(($key != "saveForm") && (substr($key, -7) != "picture"))//Prevent the submit button's name and value from being inserted into the db
+if(($key != "saveForm") && (substr($key, -7) != "picture"))//Prevent the submit button and file inputs from being saved.
 {
 //echo "Key: ".$key."<br>";
 

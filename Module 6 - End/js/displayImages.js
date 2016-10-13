@@ -1,4 +1,4 @@
-function storeImage(image,filename) {
+function displayImage(filename,element) {
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
@@ -30,42 +30,35 @@ function storeImage(image,filename) {
             console.log("Error creating / accessing objectstore");
         };
 
-        getImageFile();
+        displayThumb();
 
     };
 
-    var getImageFile = function() {
+    var displayThumb = function() {
 
-        var xhr = new XMLHttpRequest();
-        var blob;
+        var transaction = db.transaction(["pictures"], "readonly");
 
+        var objectStore = transaction.objectStore("pictures");
 
-        xhr.open("GET", image, true);
-        xhr.responseType = "blob";
+        var objectStoreRequest = objectStore.get(filename);
 
-        xhr.addEventListener("load", function() {
-            if (xhr.status === 200) {
-                console.log("Image retrieved");
+        objectStoreRequest.onsuccess = function(event) {
+            console.log("looking for: " + filename);
 
-                blob = xhr.response;
-                console.log("Blob: " + blob);
+            var imgFile = objectStoreRequest.result;
 
-                putImageInDb(blob);
-            }
-        });
+            console.log("got picture! " + imgFile);
 
-        xhr.send();
+            var imgURL = window.URL.createObjectURL(imgFile);
 
 
+            var imgPicture = document.getElementById(element + "_preview");
 
-    };
+            imgPicture.setAttribute("src", imgURL);
 
-    var putImageInDb = function (blob) {
-        console.log("Putting picture in IndexedDB");
 
-        var transaction = db.transaction(["pictures"], "readwrite");
+        }
 
-        var put = transaction.objectStore("pictures").put(blob, filename);
 
     };
 
