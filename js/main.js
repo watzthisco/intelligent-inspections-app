@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    //make global object to hold all image blobs
+    var imgBlobObj = {};
+
     var sectionHeads = $("section div:first-child");
     //show the section headers
     sectionHeads.show();
@@ -54,7 +58,7 @@ $(document).ready(function () {
                     $('[name=' + formEle +']')[formEleVal].checked = true;
                 } else {
                     if ($('input[name=' + formEle + ']').is(":file")) {
-                        displayImage(formEleVal, formEle);
+                        displayImage(formEleVal, formEle, imgBlobObj);
                     } else {
                         $('[name=' + formEle + ']').val(formEleVal);
                     }
@@ -98,22 +102,24 @@ $(document).ready(function () {
 
             $('#' + filekey + '_preview').attr('src', tmppath);
 
-            storeImage(tmppath, filename);
+            storeImage(tmppath, filename, imgBlobObj,filekey);
         });
     });
 
 
-
-
+    //todo: figure out how to insert the image name and the image url into the _FILES object before the post to the save script.
 
     //bind the form
+    var formData = new FormData();
     var options = {
         target: '#output',
-        data: function() {
-            createImageObject();
-        },
         beforeSubmit: function(arr){
+            for (picture in imgBlobObj){
+                arr.push({name:picture,type:"file",value:imgBlobObj[picture]});
+            }
+
             console.log(arr);
+
         },
         success: function () {
             console.log("successfully saved data to server");
