@@ -109,7 +109,14 @@ $(document).ready(function () {
     //bind the form
     var options = {
         target: '#output',
+        data: function() {
+            createImageObject();
+        },
+        beforeSubmit: function(arr){
+            console.log(arr);
+        },
         success: function () {
+            console.log("successfully saved data to server");
             //db.delete();
         }
     };
