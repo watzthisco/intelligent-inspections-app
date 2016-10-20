@@ -107,7 +107,6 @@ $(document).ready(function () {
     });
 
 
-    //todo: figure out how to insert the image name and the image url into the _FILES object before the post to the save script.
 
     //bind the form
     var formData = new FormData();
@@ -118,7 +117,7 @@ $(document).ready(function () {
                 arr.push({name:picture,type:"file",value:imgBlobObj[picture]});
             }
 
-            console.log(arr);
+            //console.log(arr);
 
         },
         success: function () {

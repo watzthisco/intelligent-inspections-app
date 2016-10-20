@@ -76,19 +76,3 @@ function storeImage(image,filename,imgBlobObj,element) {
     };
 
 }
-
-function createImageObject(){
-    var imgObject = {};
-    var imgPicture;
-
-    $('input[type=file]').each(function(){
-
-        imgPicture = $('#' + this.name + "_preview");
-
-        if(imgPicture.attr('src') != '') {
-            imgObject[this.name] = imgPicture.attr('src');
-            console.log(this.name + " found! " + imgObject[this.name]);
-        }
-    });
-    return imgObject;
-}
