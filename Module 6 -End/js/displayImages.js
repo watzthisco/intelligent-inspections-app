@@ -1,4 +1,4 @@
-function displayImage(filename,element) {
+function displayImage(filename,element,imgBlobObj) {
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
@@ -48,6 +48,9 @@ function displayImage(filename,element) {
             var imgFile = objectStoreRequest.result;
 
             console.log("got picture! " + imgFile);
+
+            imgBlobObj[element] = imgFile;
+            imgBlobObj[element].name = filename;
 
             var imgURL = window.URL.createObjectURL(imgFile);
 

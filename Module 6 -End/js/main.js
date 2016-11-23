@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    var imgBlobObj = {};
+
     var sectionHeads = $("section div:first-child");
     //show the section headers
     sectionHeads.show();
@@ -54,7 +57,7 @@ $(document).ready(function () {
                     $('[name=' + formEle +']')[formEleVal].checked = true;
                 } else {
                     if ($('input[name=' + formEle + ']').is(":file")) {
-                        displayImage(formEleVal, formEle);
+                        displayImage(formEleVal, formEle, imgBlobObj);
                     } else {
                         $('[name=' + formEle + ']').val(formEleVal);
                     }
@@ -98,7 +101,7 @@ $(document).ready(function () {
 
             $('#' + filekey + '_preview').attr('src', tmppath);
 
-            storeImage(tmppath, filename);
+            storeImage(tmppath, filename, imgBlobObj, filekey);
         });
     });
 
@@ -109,9 +112,16 @@ $(document).ready(function () {
     //bind the form
     var options = {
         target: '#output',
+        beforeSubmit: function(arr){
+          for (picture in imgBlobObj){
+              arr.push({name: picture, type: "file", value: imgBlobObj[picture]});
+          }
+          console.log(arr);
+        },
         success: function () {
             //db.delete();
         }
+
     };
     $('#newInspection').ajaxForm(options);
 
