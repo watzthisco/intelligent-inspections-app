@@ -1,11 +1,9 @@
 <?php
 
-// Connects to your Database
-$connection = mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
 
-$result = mysql_query('SELECT * FROM properties',$connection) or die('problem getting data');
+$result = mysqli_query($con,'SELECT * FROM properties') or die('problem getting data');
 ?>
 <html>
   <head>
@@ -28,7 +26,7 @@ $result = mysql_query('SELECT * FROM properties',$connection) or die('problem ge
 	</tr>
 <?php
 
-while($property = mysql_fetch_row($result)) {
+while($property = mysqli_fetch_row($result)) {
 
 	$property_id = $property[0];
 	$property_customer = $property[1];

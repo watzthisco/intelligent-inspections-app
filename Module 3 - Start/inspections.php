@@ -1,11 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include "includes/dbconn.php";
 
-// Connects to your Database
-$connection = mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
 
-
-$result = mysql_query('SELECT * FROM INSPECTIONS',$connection) or die('problem getting data');
+$result = mysqli_query($con,'SELECT * FROM INSPECTIONS') or die('problem getting data');
 ?>
 <html>
   <head>
@@ -27,8 +27,8 @@ $result = mysql_query('SELECT * FROM INSPECTIONS',$connection) or die('problem g
 	</tr>
 <?php
 
-while($inspection = mysql_fetch_row($result)) {
-
+while($inspection = mysqli_fetch_row($result)) {
+    $customer = '';
 	$inspection_id = $inspection[0];
 	$inspection_property = $inspection[1];
 	echo "<tr>";

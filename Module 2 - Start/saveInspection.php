@@ -11,13 +11,11 @@
 $target = "pics/";
 
 
-// Connects to your Database
-mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
 
 
-	$prop_id = mysql_real_escape_string($_POST['prop_id']);
+	$prop_id = mysqli_real_escape_string($con,$_POST['prop_id']);
 	$inspectionFields = array();
 	$inspectionValues = array();
 
@@ -27,7 +25,7 @@ foreach($_POST as $key => $value)
 		{
 			//echo "Key: ".$key."<br>";
 			
-				$value=mysql_real_escape_string($_POST[$key]);
+				$value=mysqli_real_escape_string($con,$_POST[$key]);
 				array_push($inspectionFields,$key);
 				array_push($inspectionValues,$value);
 		}
@@ -41,7 +39,7 @@ foreach($_POST as $key => $value)
 
 	$query = "INSERT INTO inspections ($fieldsString) VALUES ($valuesString)";
 	//echo $query;
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($con,$query) or die(mysqli_error($con));
 
 	//insert and move pictures
 	foreach($_FILES as $file){
@@ -54,7 +52,7 @@ foreach($_POST as $key => $value)
         {
         	$query = "INSERT INTO pictures (prop_id,file_url) VALUES ('$prop_id', '$file_url')";
 
-			mysql_query($query);
+			mysqli_query($con,$query);
             // the path to the actual uploaded file is in $_FILES[ 'image' ][ 'tmp_name' ][ $index ]
             // do something with it:
 			echo "Uploading ".$file['name']."<br>";

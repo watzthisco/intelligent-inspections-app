@@ -1,13 +1,12 @@
 <?php
 
-// Connects to your Database
-$connection = mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
-$customer_id = mysql_real_escape_string($_GET['id']);
+
+$customer_id = mysqli_real_escape_string($con,$_GET['id']);
 $query = "SELECT * FROM CUSTOMERS WHERE id=".$customer_id;
-$result = mysql_query($query,$connection) or die('problem getting data');
-$customer = mysql_fetch_assoc($result);
+$result = mysqli_query($con,$query) or die('problem getting data');
+$customer = mysqli_fetch_assoc($result);
 ?>
 <html>
   <head>

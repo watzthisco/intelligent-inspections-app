@@ -8,9 +8,7 @@ error_reporting(E_ALL);
 $target = "pics/";
 
 
-// Connects to your Database
-$con = mysqli_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysqli_select_db($con, "intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
 
 

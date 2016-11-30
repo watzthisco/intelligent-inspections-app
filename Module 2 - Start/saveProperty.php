@@ -7,13 +7,11 @@
   <?php include "includes/header.php"; ?>
 <?php
 
-// Connects to your Database
-mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
 
 
-	$prop_id = mysql_real_escape_string($_POST['prop_id']);
+	$prop_id = mysqli_real_escape_string($con,$_POST['prop_id']);
 	$propertyFields = array();
 	$propertyValues = array();
 
@@ -23,7 +21,7 @@ foreach($_POST as $key => $value)
 		{
 			//echo "Key: ".$key."<br>";
 			
-				$value=mysql_real_escape_string($_POST[$key]);
+				$value=mysqli_real_escape_string($con,$_POST[$key]);
 				array_push($propertyFields,$key);
 				array_push($propertyValues,$value);
 		}
@@ -37,7 +35,7 @@ foreach($_POST as $key => $value)
 
 	$query = "INSERT INTO properties ($fieldsString) VALUES ($valuesString)";
 	//echo $query;
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($con,$query) or die(mysqli_error($con));
 
 
 ?>

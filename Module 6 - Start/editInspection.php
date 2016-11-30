@@ -1,13 +1,11 @@
 <?php
 
-// Connects to your Database
-$connection = mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
-$inspection_id = mysql_real_escape_string($_GET['id']);
+$inspection_id = mysqli_real_escape_string($con,$_GET['id']);
 $query = "SELECT * FROM INSPECTIONS WHERE id=".$inspection_id;
-$result = mysql_query($query,$connection) or die('problem getting data');
-$inspection = mysql_fetch_assoc($result);
+$result = mysqli_query($con,$query) or die('problem getting data');
+$inspection = mysqli_fetch_assoc($result);
 ?>
 <html>
   <head>
@@ -21,7 +19,7 @@ $inspection = mysql_fetch_assoc($result);
     <h2>Edit Inspection</h2>
     <form name="inspection-report" action="updateInspection.php" method="post" enctype="multipart/form-data">
 
-      Property Number: <input type="text" size="10" name="inspection_id" value="<?php echo $inspection["id"] ?>"><br><br>
+      Property Number: <input type="text" size="10" name="inspection_id" value="<?php echo $inspection["prop_id"] ?>"><br><br>
 
   <div id="form-container">
 

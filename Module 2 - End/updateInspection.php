@@ -15,11 +15,9 @@ error_reporting(E_ALL);
 $target = "pics/";
 
 
-// Connects to your Database
-mysql_connect("localhost", "inspector", "password") or die(mysql_error()) ;
-mysql_select_db("intelligentinspections") or die(mysql_error()) ;
+include "includes/dbconn.php";
 
-	$inspection_id = mysql_real_escape_string($_POST['inspection_id']);
+	$inspection_id = mysqli_real_escape_string($con,$_POST['inspection_id']);
 
 	$inspectionUpdate = array();
 
@@ -28,7 +26,7 @@ foreach($_POST as $key => $value)
 		if(($key != "saveForm") && ($key != "inspection_id")) //Prevent the submit button's name and value from being inserted into the db
 		{
 			
-				$value=mysql_real_escape_string($_POST[$key]);
+				$value=mysqli_real_escape_string($con,$_POST[$key]);
 				$keyValue = $key." = '".$value."'";
 
 				array_push($inspectionUpdate,$keyValue);
@@ -43,7 +41,7 @@ foreach($_POST as $key => $value)
 	$query = "UPDATE inspections SET $fieldsString WHERE id = '".$inspection_id."'";
 
 	//echo $query;
-	mysql_query($query) or die(mysql_error());
+	mysqli_query($con,$query) or die(mysqli_error($con));
 
 	/*
 	//insert and move pictures
