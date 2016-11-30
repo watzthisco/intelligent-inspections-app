@@ -1,4 +1,4 @@
-function storeImage(image,filename) {
+function storeImage(image,filename,imgBlobObj, element) {
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
@@ -66,6 +66,9 @@ function storeImage(image,filename) {
         var transaction = db.transaction(["pictures"], "readwrite");
 
         var put = transaction.objectStore("pictures").put(blob, filename);
+
+        imgBlobObj[element] = blob;
+        imbBlobObj[element].name = filename;
 
     };
 

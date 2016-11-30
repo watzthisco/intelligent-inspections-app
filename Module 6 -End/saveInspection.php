@@ -1,8 +1,8 @@
 <?php
-/*ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-*/
+
 
 //This is the directory where images will be saved
 $target = "pics/";
@@ -22,7 +22,8 @@ foreach($_POST as $key => $value)
 		{
 			//echo "Key: ".$key."<br>";
 			
-				$value=mysqli_real_escape_string($con,$_POST[$key]);
+
+				$value=mysqli_real_escape_string($con, $_POST[$key]);
 				array_push($inspectionFields,$key);
 				array_push($inspectionValues,$value);
 		}
@@ -39,8 +40,10 @@ foreach($_POST as $key => $value)
 	mysqli_query($con,$query) or die(mysqli_error($con));
 
 	//insert and move pictures
-	foreach($_FILES as $file){
-    	
+	foreach($_FILES as $key => $file){
+
+    	$ext = explode("/", $file['type']);
+    	$file['name'] = $prop_id.$key.'.'.$ext[1];
     	$file_url = $target.basename( $file['name']);
     	
 
