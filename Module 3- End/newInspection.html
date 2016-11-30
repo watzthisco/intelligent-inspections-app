@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intelligent Inspections, Inc. Inspection Form</title>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="sw.js"></script>
+</head>
+<body>
+<h2>New Inspection <span id="onlineStatusMessage"></span></h2>
+<form id = "newInspection" name="inspection-report" action="saveInspection.php" method="post" enctype="multipart/form-data">
+<div id="property_id">
+    Property Number: <input type="text" size="10" name="prop_id"><br><br>
+</div>
+
+
+    <div id="form-container">
+
+
+            <section>
+                <div>Interior Walls</div>
+                <div class="na"><input type="radio" name="interior_walls" value="0"></div>
+                <div class="poor"><input type="radio" name="interior_walls" value="1"></div>
+                <div class="fair"><input type="radio" name="interior_walls" value="2"></div>
+                <div class="good"><input type="radio" name="interior_walls" value="3"></div>
+                <div class="great"><input type="radio" name="interior_walls" value="4"></div>
+                <div><textarea name="interior_walls_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="interior_walls_picture"></div>
+            </section>
+            <section>
+                <div>Interior Ceilings</div>
+                <div class="na"><input type="radio" name="interior_ceilings" value="0"></div>
+                <div class="poor"><input type="radio" name="interior_ceilings" value="1"></div>
+                <div class="fair"><input type="radio" name="interior_ceilings" value="2"></div>
+                <div class="good"><input type="radio" name="interior_ceilings" value="3"></div>
+                <div class="great"><input type="radio" name="interior_ceilings" value="4"></div>
+                <div><textarea name="interior_ceilings_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="interior_ceilings_picture"></div>
+            </section>
+            <section>
+                <div>Interior Flooring</div>
+                <div class="na"><input type="radio" name="interior_flooring" value="0"></div>
+                <div class="poor"><input type="radio" name="interior_flooring" value="1"></div>
+                <div class="fair"><input type="radio" name="interior_flooring" value="2"></div>
+                <div class="good"><input type="radio" name="interior_flooring" value="3"></div>
+                <div class="great"><input type="radio" name="interior_flooring" value="4"></div>
+                <div><textarea name="interior_flooring_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="interior_flooring_picture"></div>
+            </section>
+            <section>
+                <div>Interior Lighting</div>
+                <div class="na"><input type="radio" name="interior_lighting" value="0"></div>
+                <div class="poor"><input type="radio" name="interior_lighting" value="1"></div>
+                <div class="fair"><input type="radio" name="interior_lighting" value="2"></div>
+                <div class="good"><input type="radio" name="interior_lighting" value="3"></div>
+                <div class="great"><input type="radio" name="interior_lighting" value="4"></div>
+                <div><textarea name="interior_lighting_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="interior_lighting_picture"></div>
+            </section>
+            <section>
+                <div>Windows, Screens, Shutters</div>
+                <div class="na"><input type="radio" name="windows_screens_shutters" value="0"></div>
+                <div class="poor"><input type="radio" name="windows_screens_shutters" value="1"></div>
+                <div class="fair"><input type="radio" name="windows_screens_shutters" value="2"></div>
+                <div class="good"><input type="radio" name="windows_screens_shutters" value="3"></div>
+                <div class="great"><input type="radio" name="windows_screens_shutters" value="4"></div>
+                <div><textarea name="windows_screens_shutters_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="windows_screens_shutters_picture"></div>
+            </section>
+            <section>
+                <div>Doors, Knobs, Locks</div>
+                <div class="na"><input type="radio" name="doors_knobs_locks" value="0"></div>
+                <div class="poor"><input type="radio" name="doors_knobs_locks" value="1"></div>
+                <div class="fair"><input type="radio" name="doors_knobs_locks" value="2"></div>
+                <div class="good"><input type="radio" name="doors_knobs_locks" value="3"></div>
+                <div class="great"><input type="radio" name="doors_knobs_locks" value="4"></div>
+                <div><textarea name="doors_knobs_locks_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="doors_knobs_locks_picture"></div>
+            </section>
+            <section>
+                <div>Ceiling Fans</div>
+                <div class="na"><input type="radio" name="ceiling_fans" value="0"></div>
+                <div class="poor"><input type="radio" name="ceiling_fans" value="1"></div>
+                <div class="fair"><input type="radio" name="ceiling_fans" value="2"></div>
+                <div class="good"><input type="radio" name="ceiling_fans" value="3"></div>
+                <div class="great"><input type="radio" name="ceiling_fans" value="4"></div>
+                <div><textarea name="ceiling_fans_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="ceiling_fans_picture"></div>
+            </section>
+            <section>
+                <div>Stairs and Handrails</div>
+                <div class="na"><input type="radio" name="stairs_handrails" value="0"></div>
+                <div class="poor"><input type="radio" name="stairs_handrails" value="1"></div>
+                <div class="fair"><input type="radio" name="stairs_handrails" value="2"></div>
+                <div class="good"><input type="radio" name="stairs_handrails" value="3"></div>
+                <div class="great"><input type="radio" name="stairs_handrails" value="4"></div>
+                <div><textarea name="stairs_handrails_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="stairs_handrails_picture"></div>
+            </section>
+            <section>
+                <div>Smoke Alarms</div>
+                <div class="na"><input type="radio" name="smoke_alarms" value="0"></div>
+                <div class="poor"><input type="radio" name="smoke_alarms" value="1"></div>
+                <div class="fair"><input type="radio" name="smoke_alarms" value="2"></div>
+                <div class="good"><input type="radio" name="smoke_alarms" value="3"></div>
+                <div class="great"><input type="radio" name="smoke_alarms" value="4"></div>
+                <div><textarea name="smoke_alarms_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="smoke_alarms_picture"></div>
+            </section>
+            <section>
+                <div>Fireplaces</div>
+                <div class="na"><input type="radio" name="fireplaces" value="0"></div>
+                <div class="poor"><input type="radio" name="fireplaces" value="1"></div>
+                <div class="fair"><input type="radio" name="fireplaces" value="2"></div>
+                <div class="good"><input type="radio" name="fireplaces" value="3"></div>
+                <div class="great"><input type="radio" name="fireplaces" value="4"></div>
+                <div><textarea name="fireplaces_notes" cols="40" rows="4"></textarea></div>
+                <div><input type="file" name="fireplaces_picture"></div>
+            </section>
+
+
+        <input type="submit" name="saveForm" value="SAVE">
+
+        <div id="output"></div>
+
+    </div>
+</form>
+<script src="js/vendor/jquery-3.1.0.min.js"></script>
+<script src="js/vendor/jquery.form.js"></script>
+<script src="js/onlineDetection.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
