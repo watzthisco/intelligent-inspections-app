@@ -49,7 +49,6 @@ function displayImage(filename,element,imgBlobObj) {
 
             console.log("got picture! " + imgFile);
 
-            // add blob to global object of images
             imgBlobObj[element] = imgFile;
             imgBlobObj[element].name = filename;
 
@@ -60,7 +59,9 @@ function displayImage(filename,element,imgBlobObj) {
 
             imgPicture.setAttribute("src", imgURL);
 
+
         }
+
 
     };
 

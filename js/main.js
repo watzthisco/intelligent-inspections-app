@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    //make global object to hold all image blobs
     var imgBlobObj = {};
 
     var sectionHeads = $("section div:first-child");
@@ -102,28 +101,27 @@ $(document).ready(function () {
 
             $('#' + filekey + '_preview').attr('src', tmppath);
 
-            storeImage(tmppath, filename, imgBlobObj,filekey);
+            storeImage(tmppath, filename, imgBlobObj, filekey);
         });
     });
 
 
 
+
+
     //bind the form
-    var formData = new FormData();
     var options = {
         target: '#output',
         beforeSubmit: function(arr){
-            for (picture in imgBlobObj){
-                arr.push({name:picture,type:"file",value:imgBlobObj[picture]});
-            }
-
-            //console.log(arr);
-
+          for (picture in imgBlobObj){
+              arr.push({name: picture, type: "file", value: imgBlobObj[picture]});
+          }
+          console.log(arr);
         },
         success: function () {
-            console.log("successfully saved data to server");
             //db.delete();
         }
+
     };
     $('#newInspection').ajaxForm(options);
 

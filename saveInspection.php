@@ -17,52 +17,49 @@ include "includes/dbconn.php";
 	$inspectionValues = array();
 
 foreach($_POST as $key => $value)
-{
-if(($key != "saveForm") && (substr($key, -7) != "picture"))//Prevent the submit button and file inputs from being saved.
-{
-//echo "Key: ".$key."<br>";
+	{
+		if(($key != "saveForm") && (substr($key, -7) != "picture"))//Prevent the submit button's name and value from being inserted into the db
+		{
+			//echo "Key: ".$key."<br>";
+			
 
-$value=mysqli_real_escape_string($con,$_POST[$key]);
-array_push($inspectionFields,$key);
-array_push($inspectionValues,$value);
-}
+				$value=mysqli_real_escape_string($con, $_POST[$key]);
+				array_push($inspectionFields,$key);
+				array_push($inspectionValues,$value);
+		}
 
-
-}
-
-$fieldsString = implode(',',$inspectionFields);
-$valuesString = "\"".implode('","',$inspectionValues)."\"";
-
-
-$query = "INSERT INTO inspections ($fieldsString) VALUES ($valuesString)";
-//echo $query;
-mysqli_query($con, $query) or die(mysqli_connect_error());
+			
+	}
+	
+	$fieldsString = implode(',',$inspectionFields);
+	$valuesString = "\"".implode('","',$inspectionValues)."\"";
 
 
+	$query = "INSERT INTO inspections ($fieldsString) VALUES ($valuesString)";
+	//echo $query;
+	mysqli_query($con,$query) or die(mysqli_error($con));
 
-//insert and move pictures
-foreach($_FILES as $key => $file){
+	//insert and move pictures
+	foreach($_FILES as $key => $file){
 
-//rename file before moving and inserting
-$ext = explode("/",$file['type']);
-$file['name'] = $prop_id.$key.'.'.$ext[1];
-
-$file_url = $target.basename( $file['name']);
-
+    	$ext = explode("/", $file['type']);
+    	$file['name'] = $prop_id.$key.'.'.$ext[1];
+    	$file_url = $target.basename( $file['name']);
+    	
 
 
-if( !empty( $file['tmp_name'] ) && is_uploaded_file( $file['tmp_name'] ) )
-{
-$query = "INSERT INTO pictures (prop_id,file_url) VALUES ('$prop_id', '$file_url')";
+		if( !empty( $file['tmp_name'] ) && is_uploaded_file( $file['tmp_name'] ) )
+        {
+        	$query = "INSERT INTO pictures (prop_id,file_url) VALUES ('$prop_id', '$file_url')";
 
-mysqli_query($con, $query);
-// the path to the actual uploaded file is in $_FILES[ 'image' ][ 'tmp_name' ][ $index ]
-// do something with it:
-echo "Uploading ".$file['name']."<br>";
-move_uploaded_file( $file['tmp_name'], $file_url ); // move to new location
-}
+			mysqli_query($con,$query);
+            // the path to the actual uploaded file is in $_FILES[ 'image' ][ 'tmp_name' ][ $index ]
+            // do something with it:
+			echo "Uploading ".$file['name']."<br>";
+            move_uploaded_file( $file['tmp_name'], $file_url ); // move to new location perhaps?
+        }
 
-}
+    }
 
 ?>
 <h1>Success!</h1>

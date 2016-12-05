@@ -17,6 +17,17 @@ h2 {
     width: 100%;
 }
 
+input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+}
+
+.save-enabled {
+    background: #00ff00;
+}
 section > div {
     height: 40px;
     padding-left: 10px;

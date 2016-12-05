@@ -1,4 +1,4 @@
-function storeImage(image,filename,imgBlobObj,element) {
+function storeImage(image,filename,imgBlobObj, element) {
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
@@ -51,8 +51,6 @@ function storeImage(image,filename,imgBlobObj,element) {
                 console.log("Blob: " + blob);
 
                 putImageInDb(blob);
-
-
             }
         });
 
@@ -69,7 +67,6 @@ function storeImage(image,filename,imgBlobObj,element) {
 
         var put = transaction.objectStore("pictures").put(blob, filename);
 
-        // add blob to global object of images
         imgBlobObj[element] = blob;
         imgBlobObj[element].name = filename;
 
