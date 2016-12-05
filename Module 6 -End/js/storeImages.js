@@ -68,7 +68,7 @@ function storeImage(image,filename,imgBlobObj, element) {
         var put = transaction.objectStore("pictures").put(blob, filename);
 
         imgBlobObj[element] = blob;
-        imbBlobObj[element].name = filename;
+        imgBlobObj[element].name = filename;
 
     };
 
