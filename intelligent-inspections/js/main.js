@@ -120,8 +120,6 @@ $(document).ready(function () {
         },
         success: function () {
             $('#output').dialog(opt).dialog('open');
-            console.log("success saving to server");
-            db.delete();
         }
 
     };
