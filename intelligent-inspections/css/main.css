@@ -39,14 +39,19 @@ input[type="radio"] {
     height: 100%;
 }
 
+input[type="submit"].save-enabled {
+    background:green;
+}
+
 input[type="submit"] {
     padding: 10px 20px;
-    background: #CCC;
     border-radius: 5px;
     width: 200px;
     margin: 10px auto;
     display: block;
+    background: red;
 }
+
 textarea {
     height: 30px;
     width: 40%;

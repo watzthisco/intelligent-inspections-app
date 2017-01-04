@@ -19,11 +19,10 @@ function updateOnlineStatus(online) {
     if (online) {
         osm.innerHTML = '<span class="green">*</span>';
         $('#save-button').removeAttr('disabled');
-        console.log('removed disabled');
+        $('#save-button').addClass('save-enabled');
     } else {
         osm.innerHTML = '<span class="red">*</span>';
         $('#save-button').attr('disabled',true);
-        console.log('added disabled');
-
+        $('#save-button').removeClass('save-enabled');
     }
 }
