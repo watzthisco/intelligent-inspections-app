@@ -107,21 +107,21 @@ $(document).ready(function () {
 
 
 
-
-
     //bind the form
     var options = {
         target: '#output',
         beforeSubmit: function(arr){
-          for (picture in imgBlobObj){
-              arr.push({name: picture, type: "file", value: imgBlobObj[picture]});
-          }
-          console.log(arr);
+            for (picture in imgBlobObj){
+                arr.push({name: picture, type: "file", value: imgBlobObj[picture]});
+            }
+            console.log(arr);
         },
         success: function () {
             $('#output').dialog(opt).dialog('open');
             console.log("success saving to server");
-            db.delete();
+            deleteData('intelligentInspections','inspections');
+            deleteData('intelligentImages','pictures');
+
         }
 
     };

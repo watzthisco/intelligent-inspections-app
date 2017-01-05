@@ -6,7 +6,7 @@ function storeImage(image,filename,imgBlobObj, element) {
 
     var db;
 
-    var request = indexedDB.open("inspectionImages", dbVersion);
+    var request = indexedDB.open("intelligentImages", dbVersion);
 
     var createObjectStore = function(dataBase) {
         console.log ("Creating ObjectStore");
@@ -19,7 +19,7 @@ function storeImage(image,filename,imgBlobObj, element) {
     };
 
     request.onerror = function(event) {
-        console.log("Error creating / accessing IndexedDb database");
+        console.log("Error creating / accessing IndexedDb database" + request.error);
     };
 
     request.onsuccess = function(event) {
@@ -27,7 +27,7 @@ function storeImage(image,filename,imgBlobObj, element) {
         db = request.result;
 
         db.onerror = function (event) {
-            console.log("Error creating / accessing objectstore");
+            console.log("Error creating / accessing objectstore" + db.error);
         };
 
         getImageFile();

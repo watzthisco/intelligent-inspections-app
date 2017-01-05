@@ -6,7 +6,7 @@ function displayImage(filename,element,imgBlobObj) {
 
     var db;
 
-    var request = indexedDB.open("inspectionImages", dbVersion);
+    var request = indexedDB.open("intelligentImages");
 
     var createObjectStore = function(dataBase) {
         console.log ("Creating ObjectStore");
@@ -19,7 +19,7 @@ function displayImage(filename,element,imgBlobObj) {
     };
 
     request.onerror = function(event) {
-        console.log("Error creating / accessing IndexedDb database");
+        console.log("Error creating / accessing IndexedDb database" + request.error);
     };
 
     request.onsuccess = function(event) {

@@ -34,22 +34,22 @@ section > div:first-child {
     font-weight: bold;
 }
 
-input[type="radio"] {
-    width: 100%;
-    height: 100%;
-}
-
 input[type="submit"].save-enabled {
-    background:green;
+    background: green;
 }
 
 input[type="submit"] {
     padding: 10px 20px;
     border-radius: 5px;
     width: 200px;
-    margin: 10px auto;
+    margin:10px auto;
     display: block;
-    background: red;
+    background:red;
+}
+
+input[type="radio"] {
+    width: 100%;
+    height: 100%;
 }
 
 textarea {

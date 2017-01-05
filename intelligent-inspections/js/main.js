@@ -119,8 +119,8 @@ $(document).ready(function () {
           console.log(arr);
         },
         success: function () {
-            console.log("success saving to server");
             $('#output').dialog(opt).dialog('open');
+            console.log("success saving to server");
         }
 
     };
