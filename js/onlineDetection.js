@@ -18,12 +18,12 @@ function updateOnlineStatus(online) {
     var osm = document.getElementById('onlineStatusMessage');
     if (online) {
         osm.innerHTML = '<span class="green">*</span>';
-        $('#online-save').removeAttr('disabled');
-        $('#online-save').addClass('save-enabled');
+        $('#save-button').removeAttr('disabled');
+        $('#save-button').addClass('save-enabled');
     } else {
         osm.innerHTML = '<span class="red">*</span>';
-        $('#online-save').attr('disabled',true);
-        $('#online-save').removeClass('save-enabled');
+        $('#save-button').attr('disabled',true);
+        $('#save-button').removeClass('save-enabled');
 
     }
 }

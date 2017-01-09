@@ -16,8 +16,8 @@ h2 {
 #form-container {
     width: 100%;
 }
-#online-save.save-enabled {
-    background: #00ff00;
+input[type="submit"].save-enabled {
+    background: green;
 }
 
 input[type="submit"] {

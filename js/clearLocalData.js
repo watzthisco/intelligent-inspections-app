@@ -1,9 +1,9 @@
-function clearData(dbname,store) {
+function clearData(dbname,dbversion,store) {
     var db;
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
         IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.OIDBTransaction || window.msIDBTransaction;
 
-    var DBOpenRequest = indexedDB.open(dbname,10);
+    var DBOpenRequest = indexedDB.open(dbname,dbversion);
     DBOpenRequest.onsuccess = function(event) {
 
         db = DBOpenRequest.result;

@@ -121,6 +121,8 @@ $(document).ready(function () {
         success: function () {
             $('#output').dialog(opt).dialog('open');
             console.log("success saving to server");
+            clearData('intelligentInspections',10,'inspections');
+            clearData('intelligentImages',1,'pictures');
         }
 
     };
