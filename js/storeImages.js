@@ -6,7 +6,7 @@ function storeImage(image,filename,imgBlobObj, element) {
 
     var db;
 
-    var request = indexedDB.open("intelligentImages", dbVersion);
+    var request = indexedDB.open("inspectionImages", dbVersion);
 
     var createObjectStore = function(dataBase) {
         console.log ("Creating ObjectStore");
