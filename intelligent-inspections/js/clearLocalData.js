@@ -10,7 +10,7 @@ function clearData(dbname,dbversion,store) {
         var transaction = db.transaction([store], "readwrite");
 
         transaction.oncomplete = function(event) {
-            console.log('Transactioin completed');
+            console.log('Transaction completed');
         };
         transaction.onerror = function(event) {
             console.log('Transaction not opened due to error: ' + transaction.error);

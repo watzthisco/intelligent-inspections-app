@@ -67,7 +67,7 @@ $(document).ready(function () {
     });
 
 
-    $('#newInspection input, #newInspection textarea').on('blur', function(){
+    $('#newInspection input, #newInspection textarea').not('input[type=submit]').on('blur', function(){
         console.log('input blurred');
 
         db.transaction("rw", db.inspections, function() {
@@ -107,7 +107,17 @@ $(document).ready(function () {
 
 
 
-
+    var saveopt = {
+        autoOpen: false,
+        modal: true,
+        show: {
+            effect: 'fade',
+            duration: 800
+        },
+        close: function() {
+            location.reload();
+        }
+    };
 
     //bind the form
     var options = {
@@ -119,7 +129,7 @@ $(document).ready(function () {
           console.log(arr);
         },
         success: function () {
-            $('#output').dialog(opt).dialog('open');
+            $('#output').dialog(saveopt).dialog('open');
             console.log("success saving to server");
             clearData('intelligentInspections',10,'inspections');
             clearData('inspectionImages',1,'pictures');
