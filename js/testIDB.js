@@ -9,7 +9,6 @@ request.onupgradeneeded = function (event) {
     console.log("running onupgradeneeded");
     var myDB = event.target.result;
 
-
     if (!myDB.objectStoreNames.contains("inspections")) {
         myDB.createObjectStore("inspections");
     }
@@ -24,25 +23,35 @@ request.onsuccess = function (event) {
     document.querySelector("#submitButton").addEventListener("click", addInspection);
 };
 
-function addInspection(event) {
-
+function addInspection (event) {
     var transaction = db.transaction(["inspections"], "readwrite");
     var store = transaction.objectStore("inspections");
 
     var inspection = {
-        prop_id: "4",
-        inspect_date: "November 3, 2016",
-        int_walls: 5,
-        int_walls_notes: "Has walls"
+        prop_id: "5",
+        inspection_date: "November 4, 2016",
+        int_walls: 1,
+        int_walls_notes: "Needs some work."
     };
 
-    var request = store.add(inspection, 1);
+    var request = store.add(inspection, 2);
 
     request.onerror = function (event) {
-        console.log("Error", event.target.error.name);
+        console.log("error: ", event.target.error.name);
     };
 
     request.onsuccess = function (event) {
         console.log("Request completed!");
     };
+
 }
+
+
+
+
+
+
+
+
+
+

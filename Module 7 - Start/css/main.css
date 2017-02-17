@@ -1,0 +1,128 @@
+h2 {
+    background-color: #000;
+    color: #FFF;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#property_id {
+    padding: 10px;
+    text-align: right;
+}
+
+#form-container {
+    width: 100%;
+}
+
+section > div {
+    height: 40px;
+    padding-left: 10px;
+    display: none;
+}
+
+.active-section{
+    display:block;
+}
+
+section > div:first-child {
+    background-color: #dadada;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+input[type="submit"].save-enabled {
+    background: green;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 200px;
+    margin:10px auto;
+    display: block;
+    background:red;
+}
+
+input[type="radio"] {
+    width: 100%;
+    height: 100%;
+}
+
+textarea {
+    height: 30px;
+    width: 40%;
+}
+
+input[type="file"] {
+    padding-top: 10px;
+}
+
+/* condition colors */
+
+.na {
+    background-color: #FFF;
+}
+
+.na > input:after {
+    content: "N/A";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.poor {
+    background-color: #FF0000;
+}
+.poor > input:after {
+    content: "Poor";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.fair {
+    background-color: #FFFF00;
+}
+.fair > input:after {
+    content: "Fair";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.good {
+    background-color: #CCFB5D;
+}
+.good > input:after {
+    content: "Good";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+.great {
+    background-color: #00FF00;
+}
+.great > input:after {
+    content: "Great";
+    margin-left: 40px;
+    vertical-align: -60%;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.thumb {
+    width: 35px;
+    height: 35px;
+}
+
+#largeImage {
+    max-width: 400px;
+    width: 100%;
+}
+
+#large-image-modal {
+    display:none;
+}
