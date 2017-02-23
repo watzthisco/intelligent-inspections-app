@@ -127,8 +127,26 @@ $(document).ready(function () {
               arr.push({name: picture, type: "file", value: imgBlobObj[picture]});
           }
           console.log(arr);
+
+        //progress bar stuff  
+        $('#status').empty();
+        var percentVal = '0%';
+        $('.bar').width(percentVal)
+        $('.percent').html(percentVal);
+        $('.progress').css('display','block');
+        $('input[type="submit"]').attr("disabled", true);
         },
+        uploadProgress: function(event, position, total, percentComplete) {
+        var percentVal = percentComplete + '%';
+        $('.bar').width(percentVal)
+        $('.percent').html(percentVal);
+        //console.log(percentVal, position, total);
+    },
         success: function () {
+            var percentVal = '100%';
+            $('.bar').width(percentVal)
+            $('.percent').html(percentVal);
+
             $('#output').dialog(saveopt).dialog('open');
             console.log("success saving to server");
             clearData('intelligentInspections',10,'inspections');
