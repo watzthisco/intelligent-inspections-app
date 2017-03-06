@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Intelligent Inspections, Inc. Inspection Form</title>
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -121,7 +123,10 @@
             <div><textarea name="fireplaces_notes" cols="40" rows="4"></textarea></div>
             <div><input type="file" name="fireplaces_picture"> <img src="" id="fireplaces_picture_preview" class="thumb"></div>
         </section>
-
+        <div class="progress">
+            <div class="bar"></div>
+            <div class="percent">0%</div>
+        </div>
 
         <input type="submit" name="saveForm" value="SAVE" id="save-button">
 
@@ -135,10 +140,10 @@
 </form>
 <script src="js/vendor/jquery-3.1.0.min.js"></script>
 <script src="js/vendor/jquery.form.js"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/vendor/serializeObject.js"></script>
 <script src="js/onlineDetection.js"></script>
-<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+<script src="//unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="js/storeImages.js"></script>
 <script src="js/displayImages.js"></script>
 <script src="js/clearLocalData.js"></script>
