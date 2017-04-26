@@ -61,24 +61,7 @@ $(document).ready(function () {
         });
     });
 
-    $('input[type=file]').on('change', function() {
-        var tmppath = URL.createObjectURL(this.files[0]);
-        var filename = this.name;
 
-            db.inspections.toArray().then(function (fData) {
-                fData = fData[fData.length - 1];
-
-                formObj = $('form').serializeObject();
-                formObj[filename] = tmppath;
-                console.log('temp path: ' + tmppath);
-                console.log('file input changed: ' + filename + '\nvalue: ' + formObj[filename]);
-
-                db.inspections.update(fData.id, formObj);
-
-            });
-
-
-    });
 
 
 
